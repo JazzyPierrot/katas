@@ -19,4 +19,4 @@ practice/knowledge, and I report here those that I think are worthwhile.
 ## Katas
 
 * Scattersplot smoothers: 
-  [[part1]("./katas/Rmd/scatterplot_smoother_part1.Rmd")]
+  [[part1](./katas/Rmd/scatterplot_smoother_part1.Rmd)]
