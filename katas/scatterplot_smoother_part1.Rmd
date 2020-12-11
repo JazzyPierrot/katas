@@ -2,10 +2,6 @@
 title: "Scatterplot smoothers part 1"
 author: "Pierre Camilleri"
 date: "2020-12-09"
-output:
-  html_document:
-    theme: readable
-    toc: yes
 ---
 
 
@@ -15,12 +11,13 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(purrr)
-colors <- c("#404788FF", "#238A8DFF", "#55C667FF", "#FDE725FF")
 ```
 
 # Estimation with a scatterplot smoother
 
-Let us generate y = f(x) with a complex non-monotonic function plus a gaussian error.
+The aim is to explore alternative scatterplot smoothers and their properties and proper use.
+
+Let us generate y = f(x) with a complex non-monotonic function with gaussian error.
 
 ```{r generate_data}
 n_draws <- 100
@@ -38,7 +35,8 @@ plot_data <- function() {
     geom_point() +
     geom_line(aes(y = y, linetype = "E(y|x)")) +
     ylab("y") +
-    scale_linetype("")
+    scale_linetype("") +
+    theme(text = element_text(size = 40))
 }
 plot_data()
 ```
@@ -52,7 +50,7 @@ Points of interest:
 
 # My take
 
-```{r}
+```{r geom_smooth_doc, eval = FALSE}
 ?ggplot2::geom_smooth
 ```
 
@@ -83,7 +81,7 @@ df_rm <- df %>%
   )
 ```
 
-```{r}
+```{r plot_rolling_mean}
 plot_data() +
   ggplot2::geom_line(
     data = df_rm,
@@ -101,7 +99,7 @@ Augmenting the rolling window size, makes it somewhat less bumpy, but accentuate
 
 Loess (or equivalently Lowess), which stands for "locally weighted scatterplot smoothing", is a smoothing method that fits simple models to localized subsets of the data (neighborhoods) to perform a non-parametric regression.
 
-```{r}
+```{r loess_doc, eval = FALSE}
 ?stats::loess
 ```
 
@@ -186,7 +184,7 @@ To conclude:
 
 We will explore only the default gam of `ggplot2::stat_smooth()`. Documentation specifies that it runs with `formula = y ~ s(x, bs = "cs")`.
 
-```{r gam_doc}
+```{r gam_doc, eval = FALSE}
 require(mgcv)
 ?formula.gam
 ?smooth.terms

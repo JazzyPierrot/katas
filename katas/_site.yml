@@ -1,0 +1,16 @@
+name: "Data katas"
+output_dir: "../docs"
+navbar:
+  title: "Data katas"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Katas"
+      menu:
+        - text: "Scattersplot smoothers"
+        - text: "Part 1"
+          href: scatterplot_smoother_part1.html
+output:
+  html_document:
+    theme: readable
+    toc: yes

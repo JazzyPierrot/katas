@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Pierre Camilleri" />
+
+<meta name="date" content="2020-12-09" />
+
+<title>Scatterplot smoothers part 1</title>
+
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 66px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h2 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h3 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h4 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h5 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.section h6 {
+  padding-top: 71px;
+  margin-top: -71px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Data katas</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Katas
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Scattersplot smoothers</li>
+    <li>
+      <a href="scatterplot_smoother_part1.html">Part 1</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Scatterplot smoothers part 1</h1>
+<h4 class="author">Pierre Camilleri</h4>
+<h4 class="date">2020-12-09</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#estimation-with-a-scatterplot-smoother">Estimation with a scatterplot smoother</a></li>
+<li><a href="#my-take">My take</a>
+<ul>
+<li><a href="#rolling-mean">Rolling mean</a></li>
+<li><a href="#loess">Loess</a></li>
+<li><a href="#gam">GAM</a></li>
+</ul></li>
+</ul>
+</div>
+
+<div id="estimation-with-a-scatterplot-smoother" class="section level1">
+<h1>Estimation with a scatterplot smoother</h1>
+<p>The aim is to explore alternative scatterplot smoothers and their properties and proper use.</p>
+<p>Let us generate y = f(x) with a complex non-monotonic function with gaussian error.</p>
+<pre class="r"><code>n_draws &lt;- 100
+f &lt;- function(x) {3 * sin(0.1 * x ^ 2) * log(x)}
+x &lt;- runif(n_draws, 0, 10)
+y &lt;- f(x)
+y_err &lt;- y + rnorm(length(y), 0, 4)
+df &lt;- data.frame(x, y, y_err) %&gt;%
+  arrange(x)</code></pre>
+<pre class="r"><code>plot_data &lt;- function() {
+  ggplot(df, aes(x = x, y = y_err)) +
+    geom_point() +
+    geom_line(aes(y = y, linetype = &quot;E(y|x)&quot;)) +
+    ylab(&quot;y&quot;) +
+    scale_linetype(&quot;&quot;) +
+    theme(text = element_text(size = 40))
+}
+plot_data()</code></pre>
+<p><img src="scatterplot_smoother_part1_files/figure-html/plot-1.png" width="672" /></p>
+<p>The task is to use a scatterplot smoother to estimate E(y | x).</p>
+<p>Points of interest:</p>
+<p>1- Which scatterplot smoothers can be used ? What are the differences in the result ? How does the estimate behave on the edges ? 2- Which options do the smoothers have, and how do this affect the estimate ?</p>
+</div>
+<div id="my-take" class="section level1">
+<h1>My take</h1>
+<pre class="r"><code>?ggplot2::geom_smooth</code></pre>
+<p>I will look into three scatter plots smoothers: <em>rolling mean</em>, <em>loess</em> and <em>gam</em></p>
+<div id="rolling-mean" class="section level2">
+<h2>Rolling mean</h2>
+<pre class="r"><code>rolling_mean &lt;- function(y, n) {
+   as.vector(stats::filter(y, rep(1 / n, n), sides = 2))
+}
+df_rm &lt;- df %&gt;%
+  mutate(
+    y_rm1 = rolling_mean(y_err, 11),
+    y_rm2 = rolling_mean(y_err, 21),
+    y_rm3 = rolling_mean(y_err, 31)
+  ) %&gt;%
+  tidyr::pivot_longer(
+    cols = tidyselect::starts_with(&quot;y_rm&quot;),
+    names_to = &quot;rm_window&quot;,
+    values_to = &quot;y_rm&quot;
+    ) %&gt;%
+  mutate(rm_window = case_when(
+      rm_window == &quot;y_rm1&quot; ~ 11,
+      rm_window == &quot;y_rm2&quot; ~ 21,
+      rm_window == &quot;y_rm3&quot; ~ 31
+      )
+  )</code></pre>
+<pre class="r"><code>plot_data() +
+  ggplot2::geom_line(
+    data = df_rm,
+    aes(x = x, y = y_rm, color = factor(rm_window)),
+    size = 1.5
+  ) +
+  scale_color_viridis_d(&quot;Rolling window size&quot;)</code></pre>
+<pre><code>## Warning: Removed 60 row(s) containing
+## missing values (geom_path).</code></pre>
+<p><img src="scatterplot_smoother_part1_files/figure-html/plot_rolling_mean-1.png" width="672" /></p>
+<p>The rolling mean produces very uneven curves (as the data at hand are not autocorrelated), and are not well defined for edge values.</p>
+<p>Augmenting the rolling window size, makes it somewhat less bumpy, but accentuates the undefined edges and fails to follow the original function.</p>
+</div>
+<div id="loess" class="section level2">
+<h2>Loess</h2>
+<p>Loess (or equivalently Lowess), which stands for “locally weighted scatterplot smoothing”, is a smoothing method that fits simple models to localized subsets of the data (neighborhoods) to perform a non-parametric regression.</p>
+<pre class="r"><code>?stats::loess</code></pre>
+<p>Highlights: * neighbourhood of x, weighted by their distance from x […], tricubic weighting * The size of the neighbourhood is controlled by […] ‘span’ * degree: the degree of the polynomials to be used * The memory usage of this implementation of ‘loess’ is roughly quadratic in the number of points, with 1000 points taking about 10Mb.</p>
+<pre class="r"><code>loess_pred &lt;- function(df, spans, degrees) {
+  parameters = expand.grid(span = spans, degree = degrees)
+  loess_obj &lt;- purrr::pmap(
+    parameters,
+    function(span, degree) { loess(y_err ~ x, data = df, span = span, degree = degree) }
+  )
+
+  names(loess_obj) &lt;- paste(&quot;y_loess&quot;, parameters[,1], parameters[,2], sep = &quot;_&quot;)
+  res &lt;- purrr::map_dfc(
+      loess_obj,
+      ~ predict(., df)
+      )
+  return(res)
+}
+loess_preds &lt;- loess_pred(df, c(0.25, 0.5, 0.75), c(1, 2))
+
+df_loess &lt;- df %&gt;%
+  bind_cols(loess_preds) %&gt;%
+  tidyr::pivot_longer(
+    tidyselect::starts_with(&quot;y_loess&quot;),
+    names_to = &quot;parameters&quot;,
+    values_to = &quot;y_loess&quot;
+  ) %&gt;%
+  tidyr::separate(
+    parameters,
+    into = c(NA, NA, &quot;span&quot;, &quot;degree&quot;),
+    sep = &quot;_&quot;,
+    convert = TRUE
+    )</code></pre>
+<pre class="r"><code>plot_data() +
+  geom_line(
+    data = df_loess,
+    mapping = aes(x = x, y = y_loess, color = factor(span)),
+    size = 1.5
+    ) +
+  facet_wrap(vars(degree)) +
+  scale_color_viridis_d(&quot;LOESS span&quot;)</code></pre>
+<p><img src="scatterplot_smoother_part1_files/figure-html/explore_loess-1.png" width="672" /></p>
+<p>We observe that: * As intuitively expected, the lower the span, and the higher the degree, the more the estimate fits local variations. * The degree 1 loess is somewhat more bumpy.</p>
+<p>The default Loess operated with <code>geom_smooth()</code> is the yellow right curve. We see that it looks not optimal, a span of 0.5 with a degree 2 estimate seems more appropriate. So the span needs to be adapted to the locality of the variations: it can be seen to the naked eye that the yellow curve does not fit the data well.</p>
+<p>Smaller spans (for instance the purple curve on the right) induce additional wiggly-ness.</p>
+<p>It can be further highlighted by looking at the residuals, which should be the less possibly auto-correlated.</p>
+<pre class="r"><code>df_loess &lt;- df_loess %&gt;%
+  filter(degree == 2) %&gt;%
+  mutate(residuals = y_err - y_loess)
+ggplot(df_loess, aes(x = x, y = residuals)) +
+  geom_point() +
+  facet_wrap(vars(span), ncol = 1)</code></pre>
+<p><img src="scatterplot_smoother_part1_files/figure-html/loess_residuals-1.png" width="672" /></p>
+<p>Looking at the third facet, it is clear that there is autocorrelation, especially between x = 5 and x = 10. I do not see a way to distinguish a better option between the two upper panels based on this plot, so let us assume that the greater the span without visible autocrelation, the less risk of overfitting the data.</p>
+<p>To conclude: * When doing smoothing with loess, it is important to verify the fit to the data for several spans; * A residuals check can be performed to identify too big spans, but will not recognize too small spans. The great wiggly-ness of the estimate will help to recognize the latter.</p>
+</div>
+<div id="gam" class="section level2">
+<h2>GAM</h2>
+<p>We will explore only the default gam of <code>ggplot2::stat_smooth()</code>. Documentation specifies that it runs with <code>formula = y ~ s(x, bs = "cs")</code>.</p>
+<pre class="r"><code>require(mgcv)
+?formula.gam
+?smooth.terms
+?cubic.regression.spline</code></pre>
+<p>Interesting bits: * <code>s</code> function in the formula is for “smooth terms” * If ‘k’ is not specified then basis specific defaults are used. Note that these defaults are essentially arbitrary, and it is important to check that they are not so small that they cause oversmoothing (too large just slows down computation). * <code>bs = "cs"</code> refers to: “A shrinkage version of cubic regression splines”. For which: Default ‘k’ is 10.</p>
+<p>Lots of interesting stuff in “smooth.terms”, we will keep them for other exploration (for instance “cyclic cubic regression splines”)</p>
+<p>Let us visualise the result:</p>
+<pre class="r"><code>gam_pred &lt;- function(df, k) {
+  gam_obj &lt;- purrr::map(
+    k,
+    ~ mgcv::gam(y_err ~ s(x, bs = &quot;cs&quot;, k = .), data = df)
+  )
+  names(gam_obj) &lt;- paste(&quot;y_gam&quot;, k, sep = &quot;_&quot;)
+  res &lt;- purrr::map_dfc(
+      gam_obj,
+      ~ predict(., df)
+      )
+  return(res)
+}
+gam_preds &lt;- gam_pred(df, k = c(5, 10, 20, 50))
+
+df_gam &lt;- df %&gt;%
+  bind_cols(gam_preds) %&gt;%
+  tidyr::pivot_longer(
+    tidyselect::starts_with(&quot;y_gam&quot;),
+    names_to = &quot;parameters&quot;,
+    values_to = &quot;y_gam&quot;
+  ) %&gt;%
+  tidyr::separate(
+    parameters,
+    into = c(NA, NA, &quot;k&quot;),
+    sep = &quot;_&quot;,
+    convert = TRUE
+    )</code></pre>
+<pre class="r"><code>plot_data() +
+  geom_line(
+    data = df_gam,
+    mapping = aes(x = x, y = y_gam, color = factor(k)),
+    size = 1.5
+  ) +
+  facet_wrap(vars(k))</code></pre>
+<p><img src="scatterplot_smoother_part1_files/figure-html/explore_gam-1.png" width="672" /></p>
+<p>As specified in the documentation, <code>k = 5</code> leads to severe oversmoothing as it estimates a straight line. <code>k = 10</code> gives the best result so far, but the data has been <em>exactly</em> generated according to a model with gaussian noise, so it started with an edge. Again, as specified in the documentation, higher values of <code>k</code> do not substantially change the estimate !</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
