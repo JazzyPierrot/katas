@@ -1,0 +1,51 @@
+baseURL: https://example.com
+languageCode: en-us
+title: Pierre Camilleri
+theme: hugo-theme-cactus
+copyright: Pierre Camilleri
+disqusShortname: Pierre Camilleri
+menu:
+  main:
+    - name: Home
+      url: /
+      weight: 1
+    - name: Posts
+      url: /posts
+      weight: 2
+    # - name: Tags
+    #   url: /tags
+    #   weight: 3
+    - name: About
+      url: /about
+      weight: 4
+markup:
+  tableOfContents:
+    endLevel: 4
+    ordered: no
+    startLevel: 2
+params:
+  colortheme: white
+  comments:
+    enabled: no
+    engine: disqus
+  dateFormat: '2006-01-02'
+  description: "Hey, I am Pierre Camilleri, a data scientist at the Banque de
+    France. This is my personnal website, find out more about me,
+    browse through my posts (not much there yet) or get in touch !"
+  googleAnalyticsAsync: no
+  mainSection: posts
+  postsOnHomePage: 5
+  projectsUrl: ""
+  rss: true
+  mathjax: true
+  show_updated: no
+  showAllPostsOnHomePage: no
+  showProjectsList: false
+  social:
+    - link: https://github.com/JazzyPierrot
+      name: github
+    - link: https://www.linkedin.com/in/pierre-camilleri-6a121664
+      name: linkedin
+    - link: camilleri_pierre@hotmail.fr
+      name: email
+  tagsOverview: no
