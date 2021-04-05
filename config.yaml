@@ -1,8 +1,8 @@
-baseURL: /
+baseURL: https://pierrecamilleri.netlify.app/
 languageCode: en-us
 title: Pierre Camilleri
 theme: hugo-theme-cactus
-copyright: Pierre Camilleri
+copyright: Pierre Camilleri. Icon made by Freepik from Flaticon.
 disqusShortname: Pierre Camilleri
 menu:
   main:

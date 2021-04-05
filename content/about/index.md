@@ -53,4 +53,5 @@ simplifying performance objectives.
 This blog will be my support to deliberately practice new techniques,
 consolidate my knowledge and refine my vision on the practice of data science. 
 
-
+Icons made by [Freepik](https://www.freepik.com) from 
+[Flaticon](https://www.flaticon.com/) 
