@@ -32,8 +32,7 @@ params:
     enabled: no
     engine: disqus
   dateFormat: '2006-01-02'
-  description: "Hey, I am Pierre Camilleri, a data scientist at the Banque de
-    France. This is my personnal website, find out more about me,
+  description: "Hey, I am Pierre Camilleri, an enthusiast of participatory democracy, applied modeling, data mining, software crafting and music. This is my personnal website, find out more about me,
     browse through my posts (not much there yet) or get in touch !"
   googleAnalyticsAsync: no
   mainSection: posts
@@ -49,7 +48,7 @@ params:
       name: github
     - link: https://www.linkedin.com/in/pierre-camilleri-6a121664
       name: linkedin
-    - link: camilleri_pierre@hotmail.fr
+    - link: pierre[dot]camilleri[at]hey[dot]com
       name: email
   tagsOverview: no
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
