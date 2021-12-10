@@ -32,8 +32,8 @@ params:
     enabled: no
     engine: disqus
   dateFormat: '2006-01-02'
-  description: "Hey, I am Pierre Camilleri, a data scientist at the Banque de
-    France. This is my personnal website, find out more about me,
+  description: "Hey, I am Pierre Camilleri, a senior data scientist.
+    This is my personnal website, find out more about me,
     browse through my posts (not much there yet) or get in touch !"
   googleAnalyticsAsync: no
   mainSection: posts
