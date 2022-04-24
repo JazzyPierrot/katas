@@ -18,7 +18,7 @@ data, big or small, and
 have the same appeal for statistics and computer science. You can browse my
 resume to know more about my experience. 
 
-Outside of work, I am the of a lovely little girl. I have also been
+Outside of work, I am the father of a lovely little girl. I have also been
 playing the piano since I was a child and lately I decided that I wanted to
 learn to play jazz and improvise. I have made considerable improvements since
 then, thanks to numerous practice hours. I now need to gain confidence and I
