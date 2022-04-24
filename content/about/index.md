@@ -9,9 +9,9 @@ About me
 Hey! My name is Pierre Camilleri. 
 
 I grew up in the Limousin, France, but I now live and work in Paris. I am
-a senior data scientist currently looking for a position, striving for a 
-social impact company putting people at the center of his business. I am open 
-to changing my career path to find the right company.
+a senior data scientist, working at the French cooperative 
+[multi.coop](multi.coop), a digital company commited to the general interest 
+and putting people at the center of his business.
 
 About my data practice, I love to get my hands dirty to get the most out of 
 data, big or small, and
@@ -55,7 +55,8 @@ functional or temporal requirements). I strive for this approach, to put
 practice back at the center of data analysis, rather than being driven by
 simplistic performance objectives. 
 
-This blog will be my support to deliberately practice new techniques,
+On its technical side, this blog will be my support to deliberately practice 
+new techniques,
 consolidate my knowledge and refine my vision on the practice of data science. 
 
 Icons made by [Freepik](https://www.freepik.com) from 
