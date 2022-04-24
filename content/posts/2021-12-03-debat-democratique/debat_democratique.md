@@ -115,8 +115,8 @@ par des informations partielles ou erronées (les fameuses "fake news").
 Si la société échoue à ce que les prises de décisions soient informées, c'est 
 le système démocratique tout entier qui est mis en échec.
 
-> La production d'opinions informées et réfléchies, pour la politique et la 
-prise de décisions, est un bien commun.
+> La production d'opinions informées et réfléchies pour la politique et la 
+prise de décisions collective est un bien public.
 > (James Fishkin, traduit par moi-même)
 
 # Les limites de la conscience citoyenne
