@@ -143,7 +143,7 @@ notre point de vue. Cynthia Fleury[^Fleury] (Philosophe française) constate
 également que la proximité offerte par le numérique ne créé pas forcément la 
 communication (par exemple avec ceux qui ont un avis différent). Il a même 
 tendance à accentuer le conflit, en créant des communautés de personnes aux 
-idées proches et donne de la visibilité aux sujets les plus stérilement 
+idées proches et en donnant de la visibilité aux sujets les plus stérilement 
 conflictuels (je pense aux réseaux sociaux, mais de nombreux médias se prêtent 
 également à ce jeu).
 
