@@ -151,10 +151,11 @@ Ensuite, l'incitation à passer du temps et de l'énergie pour s'informer sur
 des enjeux complexes peut paraître faible. Quel impact ai-je individuellement 
 lorsque je vote parmi plusieurs millions d'individus ? Au vu de la pauvreté 
 des choix qui s'offrent à nous (une dizaine d'options qui vont déterminer la 
-représentation du citoyen votant sur tous les sujets politiques pendant 5 ans, 
-aussi nombreux et divers soient-ils), ce n'est pas comme si la connaissance 
-des détails avait beaucoup de chance de changer le choix de vote. Alors 
-pourquoi prendre la peine de réfléchir sur des thématiques à forts enjeux ?
+représentation du citoyen votant sur tous les sujets politiques pendant 
+plusieurs années, aussi nombreux et divers soient-ils), ce n'est pas comme si 
+la connaissance des détails avait beaucoup de chance de changer le choix de 
+vote.  Alors pourquoi prendre la peine de réfléchir sur des thématiques à 
+forts enjeux ?
 Mon impression est que notre système politique actuel peine à donner envie à 
 s'y investir pleinement en tant que citoyen.
 
