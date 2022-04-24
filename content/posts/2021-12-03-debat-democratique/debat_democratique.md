@@ -156,7 +156,7 @@ plusieurs années, aussi nombreux et divers soient-ils), ce n'est pas comme si
 la connaissance des détails avait beaucoup de chance de changer le choix de 
 vote.  Alors pourquoi prendre la peine de réfléchir sur des thématiques à 
 forts enjeux ?
-Mon impression est que notre système politique actuel peine à donner envie à 
+Mon impression est que notre système politique actuel peine à donner envie de 
 s'y investir pleinement en tant que citoyen.
 
 # La délibération émancipatrice
