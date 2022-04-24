@@ -1,5 +1,5 @@
 ---
-title: "La délibération, un besoin fondamental de la démocratie [FR]"
+title: "La délibération, un besoin fondamental de la démocratie"
 date: 2021-04-24
 ---
 
