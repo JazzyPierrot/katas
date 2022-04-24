@@ -8,21 +8,21 @@ collectives, apparu initialement dans l'analyse de mes expériences
 professionnelles, mais qui s'est naturellement étendu à la société toute
 entière, et donc à la "démocratie".
 
+# La démocratie, ce n'est pas l'usage du vote
+
 On m'a présenté, sur les bancs de l'école, notre système politique comme le 
 nec le plus ultra des systèmes démocratiques. Ce constat ne résiste 
 malheureusement pas à une analyse critique. L'usage du vote ne garantit à lui 
 seul en rien une démocratie saine, comme peuvent en témoigner tous ceux qui 
 récemment se sont posés la question au premier tour des présidentielles de 
-2022 à "voter utile" (expression qui me donne déjà des vertiges). Non, 
-vraiment, nous devrions bien nous guarder de vanter la qualité démocratique de 
-notre système : lorsque les élections se transforment en un jeu de poker, 
-c'est plutôt inquiétant.
+2022 à "voter utile" (cette expression donne déjà des vertiges, il y aurait 
+donc des votes "inutiles" !).  Non, vraiment, nous devrions bien y regarder à 
+deux fois avant de vanter la qualité démocratique de notre système : lorsque 
+les élections se transforment en un jeu de poker, c'est plutôt inquiétant.
 
-# Il existe une multitude de formes de systèmes démocratiques 
-
-Commençons par nous mettre d'accord sur la terminologie ; désignons par
-"démocratie" (du grec ancien: "dêmos", peuple et "kratein", commander) une
-idée, voire un idéal politique (c'est-à-dire relatif à l'exercice du pouvoir
+Je désigne par "démocratie" (du grec ancien : "dêmos", peuple et "kratein", 
+commander) une idée, voire un idéal politique (c'est-à-dire relatif à 
+l'exercice du pouvoir
 dans une communauté organisée) dans lequel tous les membres de la communauté 
 (dans le cas présent, les citoyens) participent aux
 décisions collectives : gouvernement du peuple par le peuple et pour le 
