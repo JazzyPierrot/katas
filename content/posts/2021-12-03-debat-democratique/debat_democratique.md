@@ -36,36 +36,6 @@ confusion soit également sémantique, si notre système peut évidemment se
 targuer d'avoir certaines qualités démocratiques, il n'est pas exempt
 de défauts, qu'il est sain d'analyser et de questionner.
 
-%% En pratique et schématiquement, au cœur de notre système politique (et c'est 
-%% vrai pour la plupart des démocraties
-%% occidentales) ce trouve un système représentatif électif au suffrage 
-%% universel, c'est-à-dire que des élections régulières permettent de choisir 
-%% parmi un ensemble de candidats le ou les représentants des citoyens, qui 
-%% prendront
-%% les décisions au nom des citoyens. Il s'agit d'un mandat représentatif, 
-%% c'est-à-dire que le représentant, une fois élu, l'est jusqu'aux prochaines 
-%% élections, et il peut agir à sa guise le temps de son mandat.
-
-%% Arrêtons-nous déjà là-dessus un instant, sans rentrer dans plus de détails 
-%% constitutionnels (même si les détails sont de première importance pour le bon 
-%% fonctionnement du système politique).
-
-%% Déjà à ce stade on peut se questionner sur ce système ; il semble que des 
-%% alternatives non pas moins démocratiques existent :
-%% * On pourrait tout-à-fait imaginer fonctionner avec des mandats impératifs (le 
-%%   représentant, révocable, doit agir en accord avec ce qui a été décidé au 
-%%   moment de son élection).
-%% * On pourrait imaginer un système représentatif non électif, par
-%% exemple avec des représentants tirés au sort. C'était par exemple utilisé dans 
-%% la démocratie athénienne de l'Antiquité.
-%% * On pourrait imaginer des modes de participation plus directs (moins 
-%%   représentatifs). C'est le cas par exemple du
-%% "municipalisme libertaire" de Murray Bookchin[^Bookchin] (philosophe, militant 
-%% et essayiste écologiste libertaire américain), qui a récemment inspiré 
-%% l'organisation des Kurdes de la région du Rojava.
-
-%% Ainsi, nous sommes face à un champ des possibles d'une grande richesse.
-
 # Qu'est-ce qu'un "bon" système démocratique ?
 
 En matiére de démocratie, nous sommes face à un champ des possibles d'une 
