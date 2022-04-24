@@ -1,6 +1,6 @@
 ---
 title: "La délibération, un besoin fondamental de la démocratie [FR]"
-date: 2021-12-03
+date: 2021-04-24
 ---
 
 J'ai un intérêt tout particulier pour les modalités de prises de décision
@@ -15,7 +15,7 @@ nec le plus ultra des systèmes démocratiques. Ce constat ne résiste
 malheureusement pas à une analyse critique. L'usage du vote ne garantit à lui 
 seul en rien une démocratie saine, comme peuvent en témoigner tous ceux qui 
 récemment se sont posés la question au premier tour des présidentielles de 
-2022 à "voter utile" (cette expression donne déjà des vertiges, il y aurait 
+2022 de "voter utile" (cette expression donne déjà des vertiges, il y aurait 
 donc des votes "inutiles" !).  Non, vraiment, nous devrions bien y regarder à 
 deux fois avant de vanter la qualité démocratique de notre système : lorsque 
 les élections se transforment en un jeu de poker, c'est plutôt inquiétant.
@@ -32,9 +32,9 @@ l'interprétation.
 
 Par abus de langage, les systèmes politiques qui cherchent à se rapprocher de
 cet idéal sont aussi appelés démocraties. Évitons que la
-confusion soit également sémantique, si notre système peut évidemment se 
-targuer d'avoir certaines qualités démocratiques, il n'est pas exempt
-de défauts, qu'il est sain d'analyser et de questionner.
+confusion soit également sémantique, si notre système a évidemment une
+certaine qualité démocratique, il est loin d'être exempt
+de défauts, qu'il est sain, même indispensable, d'analyser et de questionner.
 
 # Qu'est-ce qu'un "bon" système démocratique ?
 
