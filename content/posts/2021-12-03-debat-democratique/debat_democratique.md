@@ -163,7 +163,7 @@ s'y investir pleinement en tant que citoyen.
 
 Vous avez peut-être déjà participé à une délibération (du type assemblée 
 générale ou autre) ou la décision collective est douloureuse, semble 
-innefficace, où le débat peut ressembler à un conflit ouvert et politique.
+inefficace, où le débat peut ressembler à un conflit ouvert et politique.
 
 **Oui, le débat est une discipline difficile**, à laquelle nous ne sommes que 
 peu accoutumée. Notre culture professionnelle est pour grande partie celle de 
